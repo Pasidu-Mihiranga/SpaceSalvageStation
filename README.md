@@ -63,7 +63,7 @@ Use the following controls to navigate the game and manage space salvage operati
 *   `Enter` : Dock and attach the aligned part to the space station
 
 ### Camera & Debug Controls (Member 4 & 5)
-*   `V` : Switch Camera View (Third-Person 🎥 $\rightarrow$ Top-Down 🛰️ $\rightarrow$ Cockpit View 🚀)
+*   `V` : Switch Camera View (Third-Person  $\rightarrow$ Top-Down  $\rightarrow$ Cockpit View )
 *   `Z` or `F1` : Toggle Z-Buffer Depth Test (Toggle occlusion engine on/off)
 *   `[` or `F2` : Decrease Scanner Far Clip Distance (Brings clipping boundary closer)
 *   `]` or `F3` : Increase Scanner Far Clip Distance (Pushes clipping boundary away)
