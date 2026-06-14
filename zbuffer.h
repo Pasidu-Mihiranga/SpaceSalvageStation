@@ -3,14 +3,12 @@
 
 #include "structures.h"
 
-// -------------------------------------------------------------
-// MEMBER 4 ALGORITHM: Z-BUFFER
-// -------------------------------------------------------------
+// Z-Buffer (Depth Buffer)
 
-// Configures the depth testing attributes
+// Enable or disable Z-buffer (depth testing) to show rendering order difference
 void configureDepthEngine(bool enableZBuffer);
 
-// Performs viewport camera matrix setup to align perspectives and targets
+// Set up camera positions using gluLookAt for first person, third person, and top-down map view
 void setupPrimaryCamera(int mode, const Drone& d, float radYaw, bool isLaunching, float launchTimer, Vec3& camPos, Vec3& camTarget);
 
 #endif

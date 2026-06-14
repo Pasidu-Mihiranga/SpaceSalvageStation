@@ -3,23 +3,21 @@
 
 #include "structures.h"
 
-// -------------------------------------------------------------
-// MEMBER 5 ALGORITHM: CLIPPING & VIEWPORTS
-// -------------------------------------------------------------
+// Clipping & Viewports
 
-// Configures and enables the scissor boundaries for the secondary viewport
+// Use glViewport and glScissor to configure and restrict drawing to the side map radar box
 void activateScannerViewport(const Scanner& s);
 
-// Restores scissor test after viewport rendering is completed
+// Turn off scissor testing after drawing the side map
 void deactivateScannerViewport();
 
-// Sets up a custom narrow perspective frustum clipping range
+// Set up perspective projection with dynamic near/far clipping planes for scanner
 void configureScannerProjection(const Scanner& s);
 
-// Enables a custom arbitrary clipping plane (slicing canopy cockpit canopy)
+// Enable arbitrary user clipping plane to cut canopy and show interior components
 void enableCustomClipPlane();
 
-// Disables the custom arbitrary clipping plane
+// Disable user clipping plane
 void disableCustomClipPlane();
 
 #endif

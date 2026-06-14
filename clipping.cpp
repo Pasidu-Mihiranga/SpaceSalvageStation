@@ -1,39 +1,37 @@
 #include "clipping.h"
 
-// -------------------------------------------------------------
-// MEMBER 5 ALGORITHM: CLIPPING IMPLEMENTATION
-// -------------------------------------------------------------
+// Clipping Implementation
 
 void activateScannerViewport(const Scanner& s) {
-    // Shifts target rendering zone to secondary quadrant
+    // Map the normalized device coordinates to the mini-map rectangle viewport
     glViewport(s.viewportX, s.viewportY, s.viewportW, s.viewportH);
 
-    // Enables scissoring to restrict pixel output strictly within bounds
+    // Enable scissor test to clip any pixels rendered outside the viewport box boundaries
     glEnable(GL_SCISSOR_TEST);
     glScissor(s.viewportX, s.viewportY, s.viewportW, s.viewportH);
 }
 
 void deactivateScannerViewport() {
-    // Restores default scissor test state
+    // Disable scissor testing to allow full-screen rendering again
     glDisable(GL_SCISSOR_TEST);
 }
 
 void configureScannerProjection(const Scanner& s) {
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    // Creates a tight view frustum: objects beyond s.farClip are clipped out in real-time
+    // Use nearClip and farClip in perspective projection to clip distant objects
     gluPerspective(45.0, (float)s.viewportW / s.viewportH, s.nearClip, s.farClip);
     glMatrixMode(GL_MODELVIEW);
 }
 
 void enableCustomClipPlane() {
-    // Slices spheres/canopies along y = 0.0 plane to inspect interior components
+    // Define an arbitrary clipping plane at y = 0.0 (pointing up) to slice cockpit and see inside components
     double planeEq[4] = {0.0, 1.0, 0.0, 0.0};
     glEnable(GL_CLIP_PLANE1);
     glClipPlane(GL_CLIP_PLANE1, planeEq);
 }
 
 void disableCustomClipPlane() {
-    // Disable cockpit arbitrary slice plane
+    // Turn off the custom slice plane
     glDisable(GL_CLIP_PLANE1);
 }

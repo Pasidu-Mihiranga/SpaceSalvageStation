@@ -1,24 +1,23 @@
 #include "scaling.h"
 
-// -------------------------------------------------------------
-// MEMBER 3 ALGORITHM: 3D SCALING IMPLEMENTATION
-// -------------------------------------------------------------
+// 3D Scaling Implementation
 
 void applyScaling(float sx, float sy, float sz) {
-    // Standard OpenGL scaling call
+    // Call standard OpenGL scaling function to adjust size of elements on X, Y, Z axes
     glScalef(sx, sy, sz);
 }
 
 void updateInspectZoom(bool isInspecting, float& zoomLerp, float& zoomFactor) {
-    // Member 3 Scaling animation loop
+    // Zoom animation loop for inspect mode
     if (isInspecting) {
-        // Enlarge zoom factor: Lerps scale upwards to 2.2x
+        // Increment zoomLerp value to transition scale up to 2.2x (maximum)
         zoomLerp = fminf(1.0f, zoomLerp + 0.05f);
     } else {
-        // Retract zoom factor: Lerps scale back down to normal (1.0x)
+        // Decrement zoomLerp value to revert scale back to 1.0x (normal)
         zoomLerp = fmaxf(0.0f, zoomLerp - 0.05f);
     }
     
-    // Linear scale translation
+    // Calculate final zoom factor from linear interpolation (Lerp)
+    // When zoomLerp = 0.0, zoomFactor = 1.0. When zoomLerp = 1.0, zoomFactor = 2.2.
     zoomFactor = 1.0f + (1.2f * zoomLerp);
 }

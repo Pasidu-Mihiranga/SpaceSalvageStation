@@ -3,14 +3,12 @@
 
 #include "structures.h"
 
-// -------------------------------------------------------------
-// MEMBER 3 ALGORITHM: 3D SCALING
-// -------------------------------------------------------------
+// 3D Scaling
 
-// Helper wrapper around glScalef
+// Scale the matrix using OpenGL glScalef
 void applyScaling(float sx, float sy, float sz);
 
-// Interpolates scaling ratios to create smooth diagnostic zoom inspect frames
+// Linear interpolation (Lerp) to animate the zoom factor between 1.0x and 2.2x
 void updateInspectZoom(bool isInspecting, float& zoomLerp, float& zoomFactor);
 
 #endif

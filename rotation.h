@@ -3,17 +3,15 @@
 
 #include "structures.h"
 
-// -------------------------------------------------------------
-// MEMBER 2 ALGORITHM: 3D ROTATION
-// -------------------------------------------------------------
+// 3D Rotation
 
-// Helper wrapper around glRotatef
+// Rotate using OpenGL glRotatef function
 void applyRotation(float angle, float rx, float ry, float rz);
 
-// Manually rotates the carried part in pitch and yaw axes (Arrow Keys input)
+// Rotate the carried part in pitch, yaw, and roll based on key inputs
 void rotatePartManual(SpacePart& part, bool keyLeft, bool keyRight, bool keyUp, bool keyDown, float rotSpeed);
 
-// Automatically rotates floating unattached space junk (Debris spin effect)
+// Automatically rotate floating debris to simulate floating in space
 void rotateDebrisFloating(SpacePart& part);
 
 #endif
