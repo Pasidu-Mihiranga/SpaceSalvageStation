@@ -1,0 +1,16 @@
+# VS Code configuration files
+.vscode/
+
+# Compiled Binaries and Object files
+*.o
+*.obj
+*.out
+
+# Python temporary files (from clean-up scripts)
+__pycache__/
+*.pyc
+
+# Local OS metadata files
+.DS_Store
+Thumbs.db
+desktop.ini
